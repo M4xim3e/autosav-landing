@@ -3,124 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mentions légales — AutoSAV</title>
+  <title>Mentions légales — Anovia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0a0a0a;
-      --dark: #111318;
-      --card: #16191f;
-      --border: #252830;
-      --accent: #6366f1;
-      --accent-light: #818cf8;
-      --text: #f0f0f0;
-      --muted: #8b8fa8;
-      --white: #ffffff;
+      --bg:      #f5f5f7;
+      --text:    #1d1d1f;
+      --muted:   #6e6e73;
+      --accent:  #0071e3;
+      --white:   #ffffff;
+      --footer:  #1d1d1f;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--black);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      background: var(--white);
       color: var(--text);
-      line-height: 1.6;
+      font-size: 17px;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
+    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 64px;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 48px;
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 0 52px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.07);
     }
     .logo {
-      font-size: 1.25rem; font-weight: 800;
-      background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-      text-decoration: none;
+      font-size: 1.15rem; font-weight: 700; letter-spacing: -0.4px;
+      color: var(--text); text-decoration: none;
     }
     .nav-cta {
       background: var(--accent); color: #fff;
-      padding: 10px 24px; border-radius: 8px;
-      text-decoration: none; font-weight: 600; font-size: 0.9rem;
-      transition: background 0.2s, transform 0.1s;
+      padding: 9px 20px; border-radius: 980px;
+      text-decoration: none; font-size: 0.87rem; font-weight: 500;
+      transition: background 0.2s;
     }
-    .nav-cta:hover { background: #4f46e5; transform: translateY(-1px); }
+    .nav-cta:hover { background: #0077ed; }
 
-    .page-content {
-      max-width: 760px;
+    /* PAGE */
+    .page {
+      max-width: 720px;
       margin: 0 auto;
-      padding: 140px 24px 96px;
+      padding: 128px 24px 100px;
     }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      letter-spacing: -2px;
-      margin-bottom: 48px;
-      color: var(--white);
-    }
-
-    .legal-section {
-      margin-bottom: 40px;
-    }
-
-    .legal-section h2 {
-      font-size: 1.1rem;
+    .page-title {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
       font-weight: 700;
-      color: var(--accent-light);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: -2.5px;
+      line-height: 1.06;
+      color: var(--text);
+      margin-bottom: 64px;
     }
 
-    .legal-section p {
+    .legal-block { margin-bottom: 48px; }
+
+    .legal-block h2 {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .legal-block p {
+      font-size: 0.97rem;
       color: var(--muted);
-      font-size: 0.95rem;
       line-height: 1.8;
     }
 
-    .legal-section a {
-      color: var(--accent-light);
-      text-decoration: none;
+    .legal-block a {
+      color: var(--accent); text-decoration: none;
     }
-    .legal-section a:hover { text-decoration: underline; }
+    .legal-block a:hover { text-decoration: underline; }
 
+    /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 48px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 16px;
+      background: var(--footer);
+      padding: 40px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 20px;
     }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--muted); }
+    .footer-logo { font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+    .footer-right { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
+    .footer-links a {
+      color: rgba(255,255,255,0.42); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-copy { font-size: 0.82rem; color: rgba(255,255,255,0.28); }
 
-    @media(max-width: 600px) {
-      nav { padding: 16px 20px; }
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
       footer { flex-direction: column; text-align: center; }
+      .footer-right { flex-direction: column; gap: 16px; align-items: center; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="/" class="logo">AutoSAV</a>
-    <a href="/#contact" class="nav-cta">Réserver un appel →</a>
+    <a href="/" class="logo">Anovia</a>
+    <a href="/#contact" class="nav-cta">Réserver un appel</a>
   </nav>
 
-  <div class="page-content">
-    <h1>Mentions légales</h1>
+  <div class="page">
+    <h1 class="page-title">Mentions légales</h1>
 
-    <div class="legal-section">
+    <div class="legal-block">
       <h2>Éditeur du site</h2>
       <p>
         ECK Maxime<br />
@@ -130,37 +133,40 @@
       </p>
     </div>
 
-    <div class="legal-section">
+    <div class="legal-block">
       <h2>Hébergement</h2>
       <p>
         Ce site est hébergé par Vercel Inc.<br />
-        340 Pine Street Suite 701, San Francisco, CA 94104, États-Unis.<br />
-        Site : <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a>
+        340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis.<br />
+        <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a>
       </p>
     </div>
 
-    <div class="legal-section">
+    <div class="legal-block">
       <h2>Responsable de la publication</h2>
       <p>ECK Maxime</p>
     </div>
 
-    <div class="legal-section">
+    <div class="legal-block">
       <h2>Propriété intellectuelle</h2>
       <p>L'ensemble du contenu de ce site (textes, visuels, structure) est la propriété exclusive d'ECK Maxime. Toute reproduction sans autorisation écrite préalable est interdite.</p>
     </div>
 
-    <div class="legal-section">
+    <div class="legal-block">
       <h2>Liens hypertextes</h2>
-      <p>AutoSAV ne peut être tenu responsable du contenu des sites tiers vers lesquels il pointe.</p>
+      <p>Anovia ne peut être tenu responsable du contenu des sites tiers vers lesquels il pointe.</p>
     </div>
   </div>
 
   <footer>
-    <div class="footer-logo">AutoSAV</div>
-    <div class="footer-links">
-      <a href="/#contact">Contact</a>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    <div class="footer-logo">Anovia</div>
+    <div class="footer-right">
+      <div class="footer-links">
+        <a href="/#contact">Contact</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+      </div>
+      <span class="footer-copy">© 2026 Anovia. Tous droits réservés.</span>
     </div>
   </footer>
 
