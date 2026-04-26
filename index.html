@@ -560,36 +560,10 @@
     </div>
   </footer>
 
-  <!-- BANDEAU COOKIE -->
-  <div id="cookie-banner" style="
-    display:none; position:fixed; bottom:0; left:0; right:0; z-index:200;
-    background:#16191f; border-top:1px solid #252830;
-    padding:14px 32px; display:flex; align-items:center; justify-content:space-between;
-    gap:16px; flex-wrap:wrap;
-  ">
-    <p style="font-size:0.82rem; color:#8b8fa8; margin:0; max-width:700px; line-height:1.5;">
-      Ce site utilise uniquement des cookies techniques nécessaires à la prise de rendez-vous. En continuant, vous acceptez leur utilisation.
-    </p>
-    <button onclick="acceptCookies()" style="
-      background:#6366f1; color:#fff; border:none; border-radius:8px;
-      padding:8px 20px; font-size:0.85rem; font-weight:600; cursor:pointer;
-      white-space:nowrap; transition:background 0.2s;
-    " onmouseover="this.style.background='#4f46e5'" onmouseout="this.style.background='#6366f1'">J'accepte</button>
-  </div>
-
   <script>
     function toggleFaq(btn) {
       const item = btn.parentElement;
       item.classList.toggle('open');
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('cookie-accepted', '1');
-      document.getElementById('cookie-banner').style.display = 'none';
-    }
-
-    if (!localStorage.getItem('cookie-accepted')) {
-      document.getElementById('cookie-banner').style.display = 'flex';
     }
   </script>
 
